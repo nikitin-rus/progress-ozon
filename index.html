@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/globals.css" />
+    <link rel="stylesheet" href="styles/normalize.css" />
+    <link rel="stylesheet" href="styles/styles.css" />
+    <title>Progress</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="preview">
+      <h3 class="preview__heading">Progress</h3>
+
+      <div class="progress" data-state="normal" data-value="60">
+        <svg
+          viewBox="0 0 100 100"
+          xmlns="http://www.w3.org/2000/svg"
+          height="100"
+          width="100"
+        >
+          <circle class="progress__track" r="45" cx="50" cy="50"></circle>
+          <circle class="progress__indicator" r="45" cx="50" cy="50"></circle>
+        </svg>
+      </div>
+
+      <div class="controls">
+        <label class="control">
+          <input class="number-input value-input" />
+          <span class="control__label">Value</span>
+        </label>
+
+        <label class="control">
+          <label class="switch">
+            <input class="switch__checkbox animate-input" type="checkbox" />
+            <div class="switch__track"></div>
+            <div class="switch__thumb"></div>
+          </label>
+          <span class="control__label">Animate</span>
+        </label>
+
+        <label class="control">
+          <label class="switch">
+            <input class="switch__checkbox hidden-input" type="checkbox" />
+            <div class="switch__track"></div>
+            <div class="switch__thumb"></div>
+          </label>
+          <span class="control__label">Hide</span>
+        </label>
+      </div>
+    </div>
+
+    <script type="module" src="main.js"></script>
+  </body>
+</html>

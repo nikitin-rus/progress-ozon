@@ -1,0 +1,131 @@
+.preview {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  width: 100vw;
+  height: 100vh;
+  padding: 20px;
+  position: relative;
+}
+.preview__heading {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+}
+
+@media (orientation: portrait) {
+  .preview {
+    flex-direction: column;
+  }
+  .preview__content {
+    flex-direction: column;
+  }
+}
+@media (orientation: landscape) {
+  .preview {
+    flex-direction: row;
+  }
+  .preview__content .content {
+    flex-direction: row;
+  }
+}
+.progress {
+  display: inline-block;
+  min-width: 100px;
+  max-width: 100px;
+  min-height: 100px;
+  max-height: 100px;
+  transform: rotate(-90deg);
+}
+.progress[data-state="animate"] {
+  animation: 1s linear infinite infinite-spinning;
+}
+.progress[data-state="hidden"] {
+  visibility: hidden;
+}
+.progress__track {
+  fill: #eff3f6;
+  stroke: #eff3f6;
+  stroke-width: 10px;
+}
+.progress__indicator {
+  fill: none;
+  stroke: #005bff;
+  stroke-width: 10px;
+  transition: stroke-dasharray 1s linear;
+}
+
+@keyframes infinite-spinning {
+  from {
+    transform: rotate(-90deg);
+  }
+  to {
+    transform: rotate(270deg);
+  }
+}
+.controls {
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+}
+
+.control {
+  display: flex;
+  align-items: center;
+  column-gap: 25px;
+}
+.control__label {
+  user-select: none;
+}
+
+.number-input {
+  min-width: 50px;
+  max-width: 50px;
+  min-height: 30px;
+  max-height: 30px;
+  padding: 5px 12px;
+  border: 1px solid black;
+  border-radius: 15px;
+  text-align: center;
+  outline: none;
+}
+
+.switch {
+  min-width: 50px;
+  max-width: 50px;
+  min-height: 30px;
+  max-height: 30px;
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+}
+.switch__checkbox {
+  display: none;
+}
+.switch__checkbox:checked ~ .switch__track {
+  background-color: #005bff;
+}
+.switch__checkbox:checked ~ .switch__thumb {
+  transform: translateX(20px);
+}
+.switch__track {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #e0e6ef;
+  transition: background-color 0.5s;
+}
+.switch__thumb {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  bottom: 2px;
+  min-width: 26px;
+  max-width: 26px;
+  background-color: white;
+  border-radius: 999px;
+  transition: transform 0.5s;
+}
