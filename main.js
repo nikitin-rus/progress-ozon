@@ -4,7 +4,7 @@
  * @returns {boolean}
  */
 function isNumber(value) {
-  return /^(0|[1-9]\d*)(\.\d+)?$/.test(value);
+  return /^([0-9]*)(\.\d+)?$/.test(value);
 }
 
 window.onload = () => {
@@ -39,6 +39,8 @@ window.onload = () => {
       e.target.value = 0;
     } else if (value > 100) {
       e.target.value = 100;
+    } else {
+      e.target.value = value;
     }
 
     progress.dataset.value = +e.target.value;
@@ -74,11 +76,7 @@ window.onload = () => {
     animateInput.addEventListener("input", handleAnimate);
     hideInput.addEventListener("input", handleHide);
 
-    const state = progress.dataset.state;
     const value = progress.dataset.value;
-
-    console.log(`Progress state: ${state}`);
-    console.log(`Progress value: ${value}`);
 
     if (value && isNumber(value)) {
       setIndicatorAttrs(+value);
@@ -95,13 +93,7 @@ window.onload = () => {
     }
 
     new MutationObserver((mutationRecords) => {
-      console.log(mutationRecords);
-
-      const state = mutationRecords[0].target.dataset.state;
       const value = mutationRecords[0].target.dataset.value;
-
-      console.log(`Progress state: ${state}`);
-      console.log(`Progress value: ${value}`);
 
       if (value && isNumber(value)) {
         setIndicatorAttrs(+value);
